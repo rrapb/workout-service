@@ -30,6 +30,10 @@ public class ToolService {
         return toolRepository.findAllByEnabled(true);
     }
 
+    public List<Tool> getAllDisabled(){
+        return toolRepository.findAllByEnabled(false);
+    }
+
     public Tool getById(Long id) {
         return toolRepository.findById(id).orElse(null);
     }

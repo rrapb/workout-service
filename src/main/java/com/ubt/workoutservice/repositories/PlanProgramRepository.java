@@ -11,6 +11,8 @@ import com.ubt.workoutservice.entities.PlanProgram;
 @Repository
 public interface PlanProgramRepository extends JpaRepository<PlanProgram, Long> {
 
+    List<PlanProgram> findAllByEnabled(boolean enabled);
+
     List<PlanProgram> findAllByPersonIdAndEnabled(Long personId, boolean enabled);
 
     @Query("select p.personId from PlanProgram p where p.enabled = true")

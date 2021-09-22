@@ -32,6 +32,16 @@ public class PlanProgramController {
         return ResponseEntity.ok(planProgramService.preparePlanProgramDTOList(planProgramService.getAll()));
     }
 
+    @GetMapping("/enabled")
+    public ResponseEntity enabledPlanPrograms() {
+        return ResponseEntity.ok(planProgramService.preparePlanProgramDTOList(planProgramService.getAllEnabled()));
+    }
+
+    @GetMapping("/disabled")
+    public ResponseEntity disabledPlanPrograms() {
+        return ResponseEntity.ok(planProgramService.preparePlanProgramDTOList(planProgramService.getAllDisabled()));
+    }
+
     @GetMapping("/persons")
     public ResponseEntity personsWithEnabledPlanProgram(){
         return ResponseEntity.ok(planProgramService.getAllPersonsWithPlanProgramEnabled());

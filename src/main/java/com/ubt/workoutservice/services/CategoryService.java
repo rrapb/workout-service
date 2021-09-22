@@ -26,6 +26,10 @@ public class CategoryService {
         return categoryRepository.findAllByEnabled(true);
     }
 
+    public List<Category> getAllDisabled(){
+        return categoryRepository.findAllByEnabled(false);
+    }
+
     public Category getById(Long id) {
         return categoryRepository.findById(id).orElse(null);
     }

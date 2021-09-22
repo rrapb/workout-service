@@ -40,6 +40,14 @@ public class PlanProgramService
         return planProgramRepository.findAll();
     }
 
+    public List<PlanProgram> getAllEnabled(){
+        return planProgramRepository.findAllByEnabled(true);
+    }
+
+    public List<PlanProgram> getAllDisabled(){
+        return planProgramRepository.findAllByEnabled(false);
+    }
+
     public List<Long> getAllPersonsWithPlanProgramEnabled(){
         return planProgramRepository.findAllPersonsWithPlanProgramEnabled();
     }

@@ -35,6 +35,11 @@ public class ToolController {
 		return ResponseEntity.ok(toolService.prepareToolDTOList(toolService.getAllEnabled()));
 	}
 
+	@GetMapping("/disabled")
+	public ResponseEntity disabledTools() {
+		return ResponseEntity.ok(toolService.prepareToolDTOList(toolService.getAllDisabled()));
+	}
+
 	@GetMapping(value = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity getById(@PathVariable Long id) {
 		return ResponseEntity.ok(toolService.prepareToolDTO(toolService.getById(id).getId()));

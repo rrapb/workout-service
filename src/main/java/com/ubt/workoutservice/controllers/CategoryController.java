@@ -35,6 +35,11 @@ public class CategoryController {
 		return ResponseEntity.ok(categoryService.prepareCategoryDTOList(categoryService.getAllEnabled()));
 	}
 
+	@GetMapping("/disabled")
+	public ResponseEntity disabledCategories() {
+		return ResponseEntity.ok(categoryService.prepareCategoryDTOList(categoryService.getAllDisabled()));
+	}
+
 	@GetMapping(value = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity getById(@PathVariable Long id) {
 		return ResponseEntity.ok(categoryService.prepareCategoryDTO(categoryService.getById(id).getId()));
